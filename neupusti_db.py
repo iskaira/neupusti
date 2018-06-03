@@ -134,7 +134,3 @@ class SQLight:
     def close(self):
         """ Закрываем текущее соединение с БД """
         self.connection.close()
-
-import constants
-db = SQLight(constants.db_name)
-print(db.get_admin_list())
