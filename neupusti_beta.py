@@ -81,15 +81,9 @@ def categorizing(message):
 	db = SQLight(constants.db_name)
 	if message.text == 'admin':
 		admins = db.get_admin_list()
-		if message.from_user.username in admins or message.from_user.id==295091909:
-			print("IS ADMIN")
+		if message.from_user.username in admins:
 			bot.send_message(message.from_user.id,"Здарвствуйте, Админ!",reply_markup = admin_buttons())
 
-	if message.text=='del':
-		print("DELETED Kairat")
-		db.delete_user_all(295091909)
-		db.delete_user_info_all(295091909)
-		db.delete_new_user_info_all(295091909)
 	if "Мои подписки" in message.text:	
 		temp=db.get_category(message.from_user.id)
 		following=''
@@ -243,6 +237,6 @@ def menu_admin(call):
 		print(e)
 
 # Remove webhook, it fails sometimes the set if there is a previous webhook
-bot.remove_webhook()
+# bot.remove_webhook()
 bot.polling(True)
 
