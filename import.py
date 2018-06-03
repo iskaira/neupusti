@@ -15,7 +15,7 @@ try:
         sheet.insert_rows(index,values=last_row)
         db.delete_data()
 except Exception as e:
-    bot.send_message(295091909,"NOT OK: "+str(e))
+    bot.send_message(someID,"NOT OK: "+str(e))
 
 
 
